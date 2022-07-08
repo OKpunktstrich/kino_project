@@ -1,0 +1,62 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .nav-wrapper {
+    min-width: 280px;
+    padding: 0 16px;
+  }
+
+  .main-wrapper {
+    padding: 16px;
+  }
+
+  nav {
+    margin-top: 16px;
+  }
+
+  nav ul,
+  nav ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+</style>
+<mat-toolbar color="primary">Kino.io</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="nav-wrapper">
+    <nav>
+      <ul>
+        <li><a mat-button routerLink="/">Home</a></li>
+        <li><a mat-button routerLink="/top-rated">Best bewerteten Filme</a></li>
+        <li><a mat-button routerLink="/popular">Populärsten Filme</a></li>
+        <li><a mat-button routerLink="/favorites">Favoriten</a></li>
+        <li><a mat-button routerLink="/search">Suche</a></li>
+        <li><a mat-button routerLink="/filter">Filtern</a></li>
+      </ul>
+    </nav>
+  </mat-drawer>
+  <mat-drawer-content class="main-wrapper">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

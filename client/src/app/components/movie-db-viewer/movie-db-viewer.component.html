@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Titel</th>
+      <th>Genre</th>
+      <th>Bewertung</th>
+      <th>Favorite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movieList">
+      <td><img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="150px" /></td>
+      <td>{{movie.title}}</td>
+      <td><span *ngFor="let genreId of movie.genre_ids">{{getGenreName(genreId)}}, </span></td>
+      <td>{{movie.vote_average}}</td>
+      <td *ngIf="favorites.includes(movie.id)">
+        <button mat-icon-button color="warn" aria-label="Favorite movie" (click)="onFavorite(movie.id)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </td>
+      <td *ngIf="!favorites.includes(movie.id)">
+        <button mat-icon-button color="white" aria-label="Favorite movie" (click)="onFavorite(movie.id)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

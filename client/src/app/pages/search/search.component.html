@@ -1,0 +1,20 @@
+<h1>Suche</h1>
+<div>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Suche</mat-label>
+    <input
+      type="search"
+      matInput
+      [(ngModel)]="searchInput"
+      placeholder="Ex. Sonic"
+      autofocus
+      (keyup.enter)="onSearch()"
+    />
+    <button color="primary" matSuffix mat-icon-button (click)="onSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<app-movie-db-viewer queryType="search" [searchQuery]="searchQuery"></app-movie-db-viewer>
+

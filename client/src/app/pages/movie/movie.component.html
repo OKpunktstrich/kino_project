@@ -1,0 +1,9 @@
+<h1>{{movie?.title}}</h1>
+<h2>Genre</h2>
+<ul>
+  <li *ngFor="let genre of movie?.genres">{{genre.name}}</li>
+</ul>
+<h2>Poster</h2>
+<img src="https://image.tmdb.org/t/p/w500{{movie?.poster_path}}" width="150px" />
+<h2>Preview image</h2>
+<img src="https://image.tmdb.org/t/p/w500{{movie?.backdrop_path}}" width="100%" />

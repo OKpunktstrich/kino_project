@@ -1,0 +1,30 @@
+<h1>Suche</h1>
+<mat-form-field class="example-chip-list" appearance="fill">
+  <mat-label>Favorite Genres</mat-label>
+  <mat-chip-list #chipList aria-label="Genre selection">
+    <mat-chip
+      *ngFor="let genre of genres"
+      (removed)="remove(genre)">
+      {{genre}}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+    <input
+      placeholder="Genre name"
+      #genreInput
+      [formControl]="genreFormCtrl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+      autofocus
+    >
+  </mat-chip-list>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let genre of filteredGenres | async" [value]="genre">
+      {{genre}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<app-movie-db-viewer queryType="discover" [withGenres]="withGenres"></app-movie-db-viewer>

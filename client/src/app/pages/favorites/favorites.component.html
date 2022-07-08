@@ -1,0 +1,7 @@
+<h1>Favorite</h1>
+<p>Click on a favorite in the list to explore the movie</p>
+<ul>
+  <li *ngFor="let fav of favorites">
+    <a mat-stroked-button routerLink="/movie/{{fav}}" color="primary">{{fav}}</a>
+  </li>
+</ul>
